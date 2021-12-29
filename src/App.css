@@ -1,3 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +58,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.card {
+  border: solid 10px #eee;
+  border-radius: 20px;
+  width: 400px;
+  margin-bottom: 10px;
+  padding: 20px 30px;
+}
+.card p {
+  text-align: left;
+}
+.card .title {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
