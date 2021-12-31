@@ -1,4 +1,4 @@
-import {getDate, getName} from '../utils'
+import {getDate, getName} from '../../utils'
 
 function Profile(props) {
   return (

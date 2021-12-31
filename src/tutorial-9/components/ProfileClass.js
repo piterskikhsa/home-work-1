@@ -1,5 +1,5 @@
 import React from 'react';
-import {getDate, getName} from '../utils'
+import {getDate, getName} from '../../utils'
 
 
 class ProfileClass extends React.Component {
