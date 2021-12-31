@@ -74,3 +74,23 @@ dd {
   font-size: 20px;
   margin-bottom: 10px;
 }
+.form {
+  width: 30%;
+  padding: 10px 30px;
+
+}
+.form-field{
+  padding: 10px 0;
+}
+.form-field input {
+  width: 100%;
+  padding: 12px;
+}
+.form .buttons {
+  display: flex;
+  padding: 10px 0;
+}
+.buttons button {
+  padding: 12px;
+
+}
