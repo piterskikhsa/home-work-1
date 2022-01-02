@@ -1,11 +1,11 @@
-import './App.css';
-import LoginForm from './tutorial-11/components/LoginForm.js';
+import './assets/style.css';
+import Tabs from './tutorial-3/components/Tabs';
 
 
 function App() {
   return (
     <div className="App">
-      <LoginForm/>
+      <Tabs/>
     </div>
   );
 }
