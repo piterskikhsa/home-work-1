@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let tasks = ['Я хочу сделать список задач']
 
   function handleClickAdd() {
-    const value = input.value
+    const value = input.value.trim()
     if (value) {
       tasks.push(value)
       input.value = ''
