@@ -1,11 +1,10 @@
 import './assets/style.css';
-import Tabs from './tutorial-3/components/Tabs';
+import './assets/index.js';
 
 
 function App() {
   return (
     <div className="App">
-      <Tabs/>
     </div>
   );
 }
