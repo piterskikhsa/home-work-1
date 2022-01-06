@@ -2,16 +2,18 @@ import React from 'react'
 import { Card, CardContent, TextField, Button } from '@mui/material'
 
 function CommentForm({ addComment }) {
-  const [fullName, setFullName] = React.useState('')
-  const [email, setEmail] = React.useState('')
-  const [text, setText] = React.useState('')
-  const [sumbit, setSumbit] = React.useState(false)
+  const [fields, setFields] = React.useState({
+    fullName: '',
+    email: '',
+    text: '',
+    sumbit: false,
+  })
 
   const addNewComment = () => {
     const comment = {
-      fullName,
-      email,
-      text,
+      fullName: fields.fullName,
+      email: fields.email,
+      text: fields.text,
       createdAt: new Date().toLocaleString('ru-RU', {
         day: 'numeric',
         month: 'short',
@@ -25,37 +27,21 @@ function CommentForm({ addComment }) {
   }
 
   const handleUpdateField = (e) => {
-    const value = e.target.value
     const name = e.target.name
-    switch (name) {
-      case 'email':
-        setEmail(value.trim())
-        break
-      case 'fullName':
-        setFullName(value.trim())
-        break
-      case 'text':
-        setText(value)
-        break
-      default:
-        console.log('Add name input')
-    }
+    const value = name === 'text' ? e.target.value : e.target.value.trim()
+
+    setFields({ ...fields, [name]: value })
   }
 
   const clearForm = () => {
-    setEmail('')
-    setFullName('')
-    setText('')
-    setSumbit(false)
+    setFields({ fullName: '', email: '', text: '', sumbit: false })
   }
 
   const checkEmptyForm = () => {
-    if (fullName && email && text) {
-      setSumbit(true)
-    }
-    if (!fullName || !email || !text) {
-      setSumbit(false)
-    }
+    setFields({
+      ...fields,
+      sumbit: !(!fields.fullName || !fields.email || !fields.text),
+    })
   }
 
   return (
@@ -70,7 +56,7 @@ function CommentForm({ addComment }) {
               variant="outlined"
               sx={{ marginBottom: '10px' }}
               name="fullName"
-              value={fullName}
+              value={fields.fullName}
               onChange={handleUpdateField}
             />
           </div>
@@ -81,7 +67,7 @@ function CommentForm({ addComment }) {
               variant="outlined"
               sx={{ marginBottom: '10px' }}
               name="email"
-              value={email}
+              value={fields.email}
               onChange={handleUpdateField}
             />
           </div>
@@ -94,14 +80,14 @@ function CommentForm({ addComment }) {
               rows={4}
               sx={{ marginBottom: '10px' }}
               name="text"
-              value={text}
+              value={fields.text}
               onChange={handleUpdateField}
             />
           </div>
         </form>
         <Button
           variant="contained"
-          disabled={sumbit ? null : true}
+          disabled={fields.sumbit ? false : true}
           onClick={addNewComment}
         >
           Отправить
