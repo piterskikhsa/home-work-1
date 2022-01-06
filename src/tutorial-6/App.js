@@ -2,10 +2,7 @@ import { Nav, Navbar, Row, Col, Card } from 'react-bootstrap'
 
 export default function App() {
   const { pathname } = window.location
-  let id = null
-  if (pathname.includes('post')) {
-    id = pathname.split('/').slice(-1)[0]
-  }
+  const id = pathname.split('/post/')[1]
 
   return (
     <div className="App">
@@ -53,7 +50,7 @@ export default function App() {
           </Col>
         </Row>
       )}
-      {id && pathname === '/post/' + id && (
+      {pathname === '/post/' + id && (
         <div>
           <h1>Статья №{id}</h1>
           <p>
