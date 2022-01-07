@@ -5,11 +5,17 @@ import { Button, TextField } from '@mui/material'
 import './App.css'
 
 function App() {
-  const { handleSubmit, register, formState, reset } = useForm()
+  const { handleSubmit, register, formState, reset } = useForm({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  })
 
   const onSubmit = (values) => console.log('ФОРМА!', values)
 
-  const handleClear = () => reset()
+  const handleClear = () =>
+    reset({ firstName: '', lastName: '', email: '', password: '' })
 
   return (
     <div className="App">
