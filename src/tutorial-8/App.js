@@ -7,7 +7,7 @@ function App() {
 
   const getUsers = async () => {
     try {
-      const url = 'https://61d87fd3e6744d0017ba8b71.mockapi.io/users1/'
+      const url = 'https://61d87fd3e6744d0017ba8b71.mockapi.io/users/'
       const response = await fetch(url)
       const data = await response.json()
       if (Array.isArray(data)) {
