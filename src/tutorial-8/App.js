@@ -12,8 +12,6 @@ function App() {
       const data = await response.json()
       if (Array.isArray(data)) {
         setUsers(data)
-      } else {
-        console.log(data)
       }
     } catch (err) {
       console.log('Ошибка: ' + err)
