@@ -48,7 +48,11 @@ function App() {
   }
 
   const handleUserLogin = (event) => {
-    setLogin(event.target.value.trim())
+    const value = event.target.value.trim()
+    setLogin(value)
+    const url = new URL(window.location.href)
+    url.searchParams.set('login', value)
+    window.history.pushState({}, '', url.toString())
   }
 
   return (
